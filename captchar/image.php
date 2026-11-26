@@ -4,9 +4,9 @@ session_start();
 
 require_once "captchar.php";
 
-$captcha = new Captcha();
+$captchar = new Captchar();
 
-$code = $captcha->get_and_show_image();
+$code = $captchar->get_and_show_image();
  
 // Lưu code session
 $_SESSION['captcha_code'] = $code;

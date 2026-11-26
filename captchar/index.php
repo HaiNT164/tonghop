@@ -16,7 +16,8 @@
                     <td>Captcha</td>
                     <td>
                         <img src="image.php" id="img-captcha"/>
-                        <input type="button" value="Reload" onclick="$('#img-captcha').attr('src', 'image.php?rand=' + Math.random())" /> <br/>
+                        <input type="button" value="Reload" 
+                            onclick="$('#img-captcha').attr('src', 'image.php?rand=' + Math.random())" /> <br/>
                         <input type="text" id="captcha" value="" />
                     </td>
                 </tr>
@@ -32,6 +33,7 @@
             $(document).ready(function() {
                 $('#submit').click(function() {
                     // Lấy dự liệu
+                    console.log(123);
                     var data = {
                         content : $('#content').val(),
                         captcha : $('#captcha').val()
@@ -45,13 +47,12 @@
                         alert('Bạn chưa nhập captcha');
                     }
                     else{
-                         
                         $.ajax({
                             type : 'POST',
                             dataType : 'json',
                             url : 'ajax_validate.php',
                             data : data,
-                            success : function (result){
+                            success : function (result) {
                                 if (!result.hasOwnProperty('error')){
                                     alert('Kết quả trả về không phù hợp');
                                 }

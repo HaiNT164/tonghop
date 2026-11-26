@@ -21,13 +21,12 @@ class Captchar {
     var $bg_color       =   '#FFFFFF';
      
     // Khởi tạo cấu hình, hàm này sẽ trả về mã code và hiển thị hình
-    function get_and_show_image( $override = array() ) {
+    function get_and_show_image($override = array()) {
         // Override lại thong số config
-        if( is_array( $override) )
-        {
-            foreach ( $override as  $key => $value) {
-                if( isset( $this->$key ))
-                        $this->$key = $value;
+        if (is_array($override)) {
+            foreach ($override as  $key => $value) {
+                if(isset($this->$key))
+                    $this->$key = $value;
             }           
         }
                  
@@ -59,7 +58,7 @@ class Captchar {
         $y = ($this->img_height / 2) + ( $this->font_size / 2);
          
         for ($i = 0; $i < $this->char_length ; $i++) 
-                {
+        {
             $color = $this->gd_color( $this->char_colors[rand(0, count($this->char_colors) - 1)] );
             $angle = rand(-30, 30);
             $char = substr( $this->char_set, rand(0, strlen($this->char_set) - 1), 1);
