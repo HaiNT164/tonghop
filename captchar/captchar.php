@@ -76,7 +76,7 @@ class Captchar {
         // Hiển thị ảnh
         header('content-type: image/jpg');
                   
-        ImageJPeg( $img);
+        ImageJPeg($img);
                  
         return $code;
     }   
